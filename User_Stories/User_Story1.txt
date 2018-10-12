@@ -1,0 +1,3 @@
+As a user, I need to be able to login with my Facebook credentials 
+so the application can evaluate my personality based on my Facebook posts. 
+My personality evaluation will then be shown to me.

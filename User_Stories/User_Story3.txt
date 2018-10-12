@@ -1,0 +1,3 @@
+As a user, I will be able to use my Facebook and Twitter account personality evaluations 
+to create a comparison between the two. I can see if I'm more open on twitter, and
+more consciencus on Facebook, for example

@@ -1,0 +1,3 @@
+As a user, I will be able to login to my Twitter account so that it can also
+evaluate my personality based on my Twitter posts. My personality will be shown
+to be afterwards.

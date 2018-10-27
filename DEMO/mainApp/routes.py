@@ -14,5 +14,5 @@ def index():
 def index2():
     tweets = request.form["twitter"]
     ret = twitterCall.get_tweets(tweets)
-    # y = json.loads(ret)
-    return str(ret)
+    # res = json.loads(ret)
+    return render_template('displayTweets.html', listOfTweets=ret)

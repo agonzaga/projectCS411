@@ -1,0 +1,7 @@
+We decided to use Flask because our entire team was familiar with python and
+some of us had used it before. For our API, we chose to just demo our twitter
+API because our process is simple for Facebook. We take raw text from posts,
+and then parse out any non speech text. Then, we will feed it into Watson.
+
+We did not consider any other stacks because only 1 of us had used Javascript
+before. 

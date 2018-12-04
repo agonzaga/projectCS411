@@ -7,11 +7,14 @@ def create_table():
     c.execute('''CREATE TABLE tweets (Name text, tweets text)''')
     return 0
 
+
 def insert_into_table(twitter_handle, tweets_list):
     # Insert a row of data
     for item in tweets_list:
-        c.execute("INSERT INTO tweets (Name, tweets) values (?, ?)", (twitter_handle, item))
+        c.execute("INSERT INTO tweets (Name, tweets) values (?, ?)",
+                  (twitter_handle, item))
     return 0
+
 
 def close_db():
     # Save (commit) the changes
@@ -26,19 +29,19 @@ def read_db():
     return 0
 
 
-
 def get_tweets(twitter_handle, *number_tweets):
-    global conn 
+    global conn
     global c
     conn = sqlite3.connect('data.db')
     c = conn.cursor()
 
-    number_tweets = 30
+    number_tweets = 200
     #  Keys
-    consumer_key = 'none'
-    consumer_secret = 'none'
-    access_token = 'none'
-    access_secret = 'none'
+    consumer_key = 'HXsLvWs59wM1d1XGE7LJQOigJ'
+
+    consumer_secret = 'qBeTcrfx4pzUC0EhNdYco0tQkYKVkhIIebdNr4FB6t7pOYMMoT'
+    access_token = '255953036-hY9jLN886BikD0qOBODFgaJ54xwTuAKFBgwXknLB'
+    access_secret = 'nXtasuKhZnAcA3djmj5JOrjACa7JsJthuu4amegKn4Eqt'
 
     # Authorization
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -51,22 +54,20 @@ def get_tweets(twitter_handle, *number_tweets):
                                    count=number_tweets, include_rts=False,
                                    exclude_replies=True)
     except:
-        print('The given username does not exist. \n')
         return 0
 
     tweets_list = []
     for item in tweets:
         tweets_list.append(item.text)
 
-
     # SQL
-    #create_table()
-    #insert_into_table(twitter_handle, tweets_list)
+    # create_table()
+    insert_into_table(twitter_handle, tweets_list)
     read_db()
     close_db()
 
     return tweets_list
 
 
-if __name__ == '__main__':
-    get_tweets('neiltyson', 5)
+# if __name__ == '__main__':
+#     get_tweets('neiltyson', 5)

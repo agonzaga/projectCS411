@@ -10,9 +10,16 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/getTweet')
+def getTweetHtml():
+    return render_template('getTweet.html')
+
+
 @app.route('/getTweets', methods=['POST'])
-def index2():
+def displayTweets():
     tweets = request.form["twitter"]
     ret = twitterCall.get_tweets(tweets)
+    if(ret == 0):
+        return render_template('getTweet.html', status=True, msg='The given username does not exist.')
     # res = json.loads(ret)
     return render_template('displayTweets.html', listOfTweets=ret)

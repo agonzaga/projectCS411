@@ -1,0 +1,15 @@
+.input-group-lg > .form-control,
+.input-group-lg > .input-group-append > .btn,
+.input-group-lg > .input-group-append > .input-group-text,
+.input-group-lg > .input-group-prepend > .btn,
+.input-group-lg > .input-group-prepend > .input-group-text {
+  height: calc(4.5rem + 2px);
+  padding: 0rem 1rem;
+  font-size: 3rem;
+}
+.btn-cst-start {
+  display: block;
+  width: 50%;
+  margin: 5% 25% 0;
+  padding: 1rem 0;
+}

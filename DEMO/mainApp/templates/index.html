@@ -1,18 +1,20 @@
-<html>
+{% extends "base.html" %} {% block title %}Index{% endblock %} {% block content
+%}
+<div class="text-center" style="margin: 2rem 0;">
+  <h1 class="display-1">Social Media Personalities</h1>
+  <p class="lead">
+    Compare and contrast your personality across different social media
+    platforms with the power of IBM Watson.
+  </p>
+  <img
+    style="max-width: 7.5%;"
+    src="{{ url_for('static',filename='images/watsonLogo.png') }}"
+  />
 
-<head>
-    <title>The Best Project</title>
-</head>
-
-<body style="text-align: center">
-    <h1 style="font-size: 100px">Get Tweets</h1>
-    <form action="/getTweets" method="post">
-        <span style="font-size: 75px">@</span><input style="font-size: 75px" type="text" placeholder="Enter Twitter Handle Here"
-            name="twitter">
-        <button style="font-size: 75px" type="submit" value="Submit">Submit</button>
-    </form>
-
-    <div></div>
-</body>
-
-</html>
+  <a href="/getTweet">
+    <button type="button" class="btn btn-success btn-lg btn-cst-start">
+      Start
+    </button>
+  </a>
+</div>
+{% endblock %}

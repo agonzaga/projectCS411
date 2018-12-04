@@ -1,0 +1,10 @@
+For our cache, we used sequel Lite with our flask application to store the user
+data. After an API is called, we will store text results into our database. For
+tweets, we will store it into a table called Tweets, with two columns: Handle,
+and tweet_body. For Facebook, the table called Facebook will store Facebook name
+and text of posts. When the user exits, we will clear the cache.
+
+We have yet to integrate the front end and the cache together, but we have
+created the database.
+
+Our ER diagram shows that there is no relationship between the tables.

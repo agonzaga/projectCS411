@@ -17,3 +17,5 @@ with open(join(dirname(__file__), 'profile.json')) as profile_json:
     ).get_result()
 
 print(json.dumps(profile, indent=2))
+
+

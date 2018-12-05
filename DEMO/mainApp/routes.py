@@ -2,6 +2,7 @@ from flask import render_template, request
 from mainApp import app, twitterCall
 import requests
 import json
+import sqlite3
 
 
 @app.route('/')
@@ -22,4 +23,10 @@ def displayTweets():
     if(ret == 0):
         return render_template('getTweet.html', status=True, msg='The given username does not exist.')
     # res = json.loads(ret)
+
+    d = {"contentItems": []}
+    for item in ret:
+    	d["contentItems"].append({"content":item})
+
+
     return render_template('displayTweets.html', listOfTweets=ret)

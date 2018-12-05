@@ -2,7 +2,6 @@ import validateInput.py
 import tweepy
 import sqlite3
 
-
 def create_table():
     # Create table
     c.execute('''CREATE TABLE tweets (Name text, tweets text)''')
@@ -38,6 +37,11 @@ def get_tweets(twitter_handle, *number_tweets):
     conn = sqlite3.connect('data.db')
     c = conn.cursor()
 
+    try:
+        create_table()
+    except:
+        pass
+
     number_tweets = 200
     #  Keys
     consumer_key = 'HXsLvWs59wM1d1XGE7LJQOigJ'
@@ -68,8 +72,9 @@ def get_tweets(twitter_handle, *number_tweets):
     insert_into_table(twitter_handle, tweets_list)
     read_db()
     close_db()
+
     return tweets_list
 
 
-# if __name__ == '__main__':
-#     get_tweets('neiltyson', 5)
+if __name__ == '__main__':
+    get_tweets('neiltyson', 5)

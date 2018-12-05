@@ -1,3 +1,4 @@
+import validateInput.py
 import tweepy
 import sqlite3
 
@@ -30,6 +31,8 @@ def read_db():
 
 
 def get_tweets(twitter_handle, *number_tweets):
+    if (not validateInput.isValidTwitterHandle(twitter_handle)):
+        return 0
     global conn
     global c
     conn = sqlite3.connect('data.db')

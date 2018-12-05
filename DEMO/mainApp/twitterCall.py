@@ -1,6 +1,7 @@
-import validateInput.py
+from mainApp import validateInput
 import tweepy
 import sqlite3
+
 
 def create_table():
     # Create table
@@ -42,7 +43,7 @@ def get_tweets(twitter_handle, *number_tweets):
     except:
         pass
 
-    number_tweets = 200
+    number_tweets = 500
     #  Keys
     consumer_key = 'HXsLvWs59wM1d1XGE7LJQOigJ'
 

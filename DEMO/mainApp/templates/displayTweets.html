@@ -5,7 +5,8 @@
 
   <body style="text-align:center; font-size: 75px">
     {% for tweet in listOfTweets %}
-    <div>{{ tweet }}</div>
+    <div>{{ tweet[0] }}</div>
+    <div>{{ tweet[1] }}</div>
     <br />
     {% endfor %}
   </body>

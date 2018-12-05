@@ -1,5 +1,5 @@
 from flask import render_template, request
-from mainApp import app, twitterCall
+from mainApp import app, twitterCall, watsonCall
 import requests
 import json
 import sqlite3
@@ -26,7 +26,19 @@ def displayTweets():
 
     d = {"contentItems": []}
     for item in ret:
-    	d["contentItems"].append({"content":item})
+        if ("https://" in item or "http://" in item):
+            item = item[:item.find("http")]
+        d["contentItems"].append({"content": item})
 
+    with open("profile.json", "w") as file:
+        file.write(json.dumps(d))
 
-    return render_template('displayTweets.html', listOfTweets=ret)
+    traits = []
+    watson_text = watsonCall.watson("../profile.json")
+    watson_text2 = json.loads(watson_text)
+    for i in watson_text2.get("personality"):
+        score = (i.get("name"), i.get("raw_score"))
+        traits.append(score)
+
+    print(traits)
+    return render_template('displayTweets.html', listOfTweets=traits)

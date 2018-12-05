@@ -8,20 +8,26 @@ Our proposal is to make use of IBM Watson’s Personality Insights service and l
 
 ## How to run the program
 
-1. ```
+1. Enter the project directory
+
+```
    cd DEMO
-   ```
+```
 
-````
-2. ```
+2. Enter the virtual enviorment
+
+```
 source venv/bin/activate
-````
+```
 
-3. ```
-   export FLASK_APP=DEMO.py
-   ```
+3. Set up
 
-````
-4. ```
+```
+export FLASK_APP=DEMO.py
+```
+
+4. Run
+
+```
 flask run
-````
+```

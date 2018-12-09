@@ -49,5 +49,9 @@ def displayTweets():
         score = (i.get("name"), i.get("raw_score"))
         traits.append(score)
 
-    print(traits)
-    return render_template('displayTweets.html', listOfTweets=traits)
+    traitPercentile = []
+
+    for trait in traits:
+        traitPercentile.append((trait[0], "%.2f" % (trait[1]*100)))
+
+    return render_template('displayTweets.html', listOfTweets=traitPercentile, user=tweets)

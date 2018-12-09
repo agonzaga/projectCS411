@@ -18,12 +18,18 @@ def getTweetHtml():
 
 @app.route('/login')
 def login():
+    return render_template('login.html')
+
+
+@app.route('/processLogin')
+def processLogin():
     return Login.login_twitter()
 
 
 @app.route('/oauth-authorized')
 def oauth_authorized():
     return Login.login_twitter().oauth()
+
 
 @app.route('/getTweets', methods=['POST'])
 def displayTweets():

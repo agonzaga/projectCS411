@@ -1,5 +1,5 @@
-from flask import render_template, request
-from mainApp import app, twitterCall, watsonCall
+from flask import render_template, request, session, redirect
+from mainApp import app, twitterCall, watsonCall, Login
 import requests
 import json
 import sqlite3
@@ -18,8 +18,12 @@ def getTweetHtml():
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    return Login.login_twitter()
 
+
+@app.route('/oauth-authorized')
+def oauth_authorized():
+    return Login.login_twitter().oauth()
 
 @app.route('/getTweets', methods=['POST'])
 def displayTweets():

@@ -2,7 +2,6 @@ from flask_oauthlib.client import OAuth
 from flask import request, redirect,session, url_for, flash
 twitter_acc = None
 def login_twitter():
-    print("OAUTH STARTED")
     oauth = OAuth()
 
     # Use Twitter as example remote application
@@ -25,12 +24,15 @@ def login_twitter():
     )
     twitter_acc = twitter
 
-    @twitter.tokengetter
-    def get_twitter_token(token=None):
-        return session.get('twitter_token')
+@twitter_acc.tokengetter
+def get_twitter_token(token=None):
+    tokens = session.get('twitter_token')
+    print(tokens)
+    return tokens
 
-    twitter.authorize(callback=url_for('oauth_authorized',
-    next=request.args.get('next') or request.referrer or None))
+    #this is causing it to fail
+    #twitter.authorize(callback=url_for('oauth_authorized',
+    #next=request.args.get('next') or request.referrer or None))
 
 def oauth():
     next_url = request.args.get('next') or url_for('index')

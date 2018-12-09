@@ -16,6 +16,11 @@ def getTweetHtml():
     return render_template('getTweet.html')
 
 
+@app.route('/login')
+def getTweetHtml():
+    return render_template('login.html')
+
+
 @app.route('/getTweets', methods=['POST'])
 def displayTweets():
     tweets = request.form["twitter"]

@@ -17,7 +17,7 @@ def getTweetHtml():
 
 
 @app.route('/login')
-def getTweetHtml():
+def login():
     return render_template('login.html')
 
 

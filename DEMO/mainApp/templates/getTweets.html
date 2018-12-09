@@ -1,0 +1,74 @@
+{% extends "base.html" %} {% block title %} Twitter {% endblock %} {% block
+content %}
+<div style="text-align: center">
+  <!-- <h1 class="display-3" style="margin: 2rem 0;">Twitter:</h1> -->
+  <img
+    style="max-width: 7.5%; margin: 2rem 0;"
+    src="{{ url_for('static',filename='images/twitterLogo.png') }}"
+  />
+
+  {% if msg != None %}
+  <div
+    class="modal fade"
+    id="errorModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="errorModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="errorModalLabel">Error</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">{{ msg }}</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <form action="/getTweets" method="post">
+    <div
+      class="input-group input-group-lg mb-3"
+      style="display: inline-flex; width:75%; font-size: 3rem;"
+    >
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input
+        type="text"
+        class="form-control"
+        name="twitter"
+        placeholder="Twitter Handle"
+        aria-label="Twitter Handle"
+        aria-describedby="basic-addon1"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="submit"
+          value="Submit"
+          id="button-addon2"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div></div>
+{% endblock %} {% block customJs %} {% if status == True %}
+<script src="{{ url_for('static',filename='scripts/errorModal.js') }}"></script>
+{% else %} {% endif %} {% endblock %}

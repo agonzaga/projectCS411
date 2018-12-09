@@ -33,6 +33,7 @@ def read_db():
 def get_tweets(twitter_handle, *number_tweets):
     if (not validateInput.isValidTwitterHandle(twitter_handle)):
         return 0
+
     global conn
     global c
     conn = sqlite3.connect('data.db')
@@ -43,7 +44,7 @@ def get_tweets(twitter_handle, *number_tweets):
     except:
         pass
 
-    number_tweets = 500
+    number_tweets = 10000
     #  Keys
     consumer_key = 'HXsLvWs59wM1d1XGE7LJQOigJ'
 
@@ -75,7 +76,3 @@ def get_tweets(twitter_handle, *number_tweets):
     close_db()
 
     return tweets_list
-
-
-if __name__ == '__main__':
-    get_tweets('neiltyson', 5)

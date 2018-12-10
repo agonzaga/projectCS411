@@ -20,15 +20,21 @@
 
   <body>
     <nav class="navbar sticky-top navbar-light bg-primary">
-      <a class="navbar-brand" href="/">Social Media Personalities</a>
+      <a class="navbar-brand text-light" href="/">Social Media Personalities</a>
       <a class="navbar-brand" href="/login"
         ><button class="pull-right btn btn-danger my-2 my-sm-0" type="submit">
           Login
         </button></a
       >
     </nav>
-    <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">
+    <div id="content" style="margin-bottom:2.5rem">
+      {% block content %}{% endblock %}
+    </div>
+    <div
+      id="footer"
+      class="bg-light fixed-bottom noselect cursor-default"
+      style="padding: .25rem"
+    >
       {% block footer %} &copy; Copyright 2018 by
       <a href="/">The Best CS411 Group</a>. {% endblock %}
     </div>

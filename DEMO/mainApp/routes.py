@@ -35,15 +35,22 @@ def oauth_authorized():
 def displayTweets():
     tweets = request.form["twitter"]
     ret = twitterCall.get_tweets(tweets)
+
     if(ret == 0):
         return render_template('getTweet.html', status=True, msg='The given username does not exist.')
-    # res = json.loads(ret)
 
+    # Remove URL text from tweets
     d = {"contentItems": []}
+    tweetsAsString = ""
     for item in ret:
         if ("https://" in item or "http://" in item):
             item = item[:item.find("http")]
         d["contentItems"].append({"content": item})
+        tweetsAsString += item + " "
+
+    # Checks to see if Twitter User has enough tweets [Watson requires min of 100 words]
+    if(len(tweetsAsString.split()) < 100):
+        return render_template('getTweet.html', status=True, msg='The user does not have enough tweets required to be analyzed.')
 
     with open("profile.json", "w") as file:
         file.write(json.dumps(d))
@@ -57,7 +64,11 @@ def displayTweets():
 
     traitPercentile = []
 
+    # Converts personailty score to 100 percentile
     for trait in traits:
         traitPercentile.append((trait[0], "%.2f" % (trait[1]*100)))
+
+    twitterCall.drop_table()
+    twitterCall.close_db()
 
     return render_template('displayTweets.html', listOfTweets=traitPercentile, user=tweets)

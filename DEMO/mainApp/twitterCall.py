@@ -21,19 +21,19 @@ def close_db():
     # Save (commit) the changes
     conn.commit()
     conn.close()
-    print("Closed")
+    # print("Closed")
     return 0
 
 
 def read_db():
     c.execute('SELECT * FROM tweets')
-    print(c.fetchone())
+    # print(c.fetchone())
     return 0
 
 
 def drop_table():
     c.execute('DROP TABLE tweets')
-    print("Done")
+    # print("Done")
     return 0
 
 

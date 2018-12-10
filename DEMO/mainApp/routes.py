@@ -31,7 +31,7 @@ def oauth_authorized():
     return Login.login_twitter().oauth()
 
 
-@app.route('/getTweets', methods=['POST'])
+@app.route('/displayPersonality', methods=['POST'])
 def displayTweets():
     tweets = request.form["twitter"]
     ret = twitterCall.get_tweets(tweets)
@@ -71,4 +71,4 @@ def displayTweets():
     twitterCall.drop_table()
     twitterCall.close_db()
 
-    return render_template('displayTweets.html', listOfTweets=traitPercentile, user=tweets)
+    return render_template('displayPersonality.html', listOfTweets=traitPercentile, user=tweets)

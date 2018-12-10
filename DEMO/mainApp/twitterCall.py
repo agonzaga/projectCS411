@@ -21,12 +21,19 @@ def close_db():
     # Save (commit) the changes
     conn.commit()
     conn.close()
+    print("Closed")
     return 0
 
 
 def read_db():
     c.execute('SELECT * FROM tweets')
     print(c.fetchone())
+    return 0
+
+
+def drop_table():
+    c.execute('DROP TABLE tweets')
+    print("Done")
     return 0
 
 
@@ -72,7 +79,7 @@ def get_tweets(twitter_handle, *number_tweets):
     # SQL
     # create_table()
     insert_into_table(twitter_handle, tweets_list)
-    read_db()
-    close_db()
+    # read_db()
+    # close_db()
 
     return tweets_list

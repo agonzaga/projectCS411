@@ -79,7 +79,5 @@ def get_tweets(twitter_handle, *number_tweets):
     # SQL
     # create_table()
     insert_into_table(twitter_handle, tweets_list)
-    # read_db()
-    # close_db()
 
     return tweets_list

@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block title %} Personality {% endblock %} {% block
+content %}
+<h1 class="display-1 text-center" style="margin: 1.5rem 0">@{{ user }}:</h1>
+<div class="row" style="margin: 0">
+  {% for tweet in listOfTweets %}
+  <div class="col-sm-6 col-lg-4" style="padding-bottom: 1rem;">
+    <div class="card">
+      <img
+        class="card-img-top"
+        src="{{ url_for('static',filename='images/'+tweet[0]+'.jpg') }}"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ tweet[0] }}</h5>
+        <p class="card-text">{{ tweet[1] }} Percentile</p>
+      </div>
+      <div class="card-footer">
+        {% if tweet[0] == "Openness" %}
+        <small class="text-muted"
+          >{{ tweet[0] }} is the extent to which a person is open to
+          experiencing different activities.</small
+        >
+        {% elif tweet[0] == "Agreeableness" %}
+        <small class="text-muted"
+          >{{ tweet[0] }} is a person's tendency to be compassionate and
+          cooperative toward others.</small
+        >
+        {% elif tweet[0] == "Conscientiousness" %}
+        <small class="text-muted"
+          >{{ tweet[0] }} is a person's tendency to act in an organized or
+          thoughtful way.</small
+        >
+        {% elif tweet[0] == "Extraversion" %}
+        <small class="text-muted"
+          >{{ tweet[0] }} is a person's tendency to seek stimulation in the
+          company of others.</small
+        >
+        {% else %}
+        <small class="text-muted"
+          >{{ tweet[0] }}, also referred to as Neuroticism or Natural reactions,
+          is the extent to which a person's emotions are sensitive to the
+          person's environment.</small
+        >
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

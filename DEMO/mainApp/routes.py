@@ -3,12 +3,16 @@ from mainApp import app, twitterCall, watsonCall, Login
 import requests
 import json
 import sqlite3
+import random
 
 
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    names = [("Wei-Ning Chen", "cweining@bu.edu"), ("Harry Feng", "hfeng125@bu.edu"), ("Andre Gonzaga", "agonzaga@bu.edu"),
+             ("Chichiger Shyy", "cshyy@bu.edu")]
+    random.shuffle(names)
+    return render_template('index.html', names=names)
 
 
 @app.route('/getTweet')

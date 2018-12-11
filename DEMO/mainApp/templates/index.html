@@ -23,7 +23,7 @@
 <div class="text-center text-info" style="margin: 2rem 0;">
   <div style="background-color:#00000038">
     <h1 class="display-1">Social Media Personalities</h1>
-    <p class="lead text-white">
+    <p class="lead text-white" style="text-align: justify;padding: 0 3rem;">
       Compare and contrast your personality across different social media
       platforms with the power of IBM Watson.
     </p>
@@ -35,29 +35,44 @@
       Start
     </button>
   </a>
-  {% endblock %}{% block otherContent %}
-  <div
-    id="about"
-    class="text-center"
-    style="margin-left: 5rem; margin-right: 5rem; margin-bottom: 5rem; background-color: #00000038"
-  >
-    <h1 class="display-3 text-white">About</h1>
-    <p
-      class="lead text-justify text-white"
-      style="font-size: 1.5rem !important"
-    >
-      The original intent of this project was to provider users with the ability
-      to compare and contrast the personailties of people on Twitter and
-      Facebook. However, because of technical difficulites with Facebook, we are
-      not able to provide the abiltity to analyze Facebook users.
-    </p>
+</div>
+{% endblock %}{% block otherContent %}
+<div
+  id="about"
+  class="text-center"
+  style="margin-left: 5rem; margin-right: 5rem; margin-bottom: 5rem; background-color: #00000038"
+>
+  <h1 class="display-3 text-info">About</h1>
+  <p class="lead text-justify text-white" style="font-size: 1.5rem !important">
+    The original intent of this project was to provider users with the ability
+    to compare and contrast the personailties of people on Twitter and Facebook.
+    However, because of technical difficulites with Facebook, we were not able
+    to provide the abiltity to analyze Facebook users.
+  </p>
+</div>
+<div class="row" style="margin: 0; padding:0.5rem 2rem; margin-bottom: 5rem;">
+  {% for name in names %}
+  <div class="col-lg-6" style="padding-bottom: 1rem; padding-top: 1rem;">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ name[0] }}</h5>
+        <p class="card-text">Lead Engineer</p>
+      </div>
+      <div class="card-footer">{{ name[1] }}</div>
+    </div>
   </div>
+  {% endfor %}
 </div>
 {% endblock %} {% block customJs %}
 <script>
   var pgHeight = $(document).height();
+  var pgWidth = $(document).width();
   var elHeight = $("#content").height();
-  $("#about").css("margin-top", (pgHeight - elHeight) * 1.25);
+  if (pgHeight <= pgWidth) {
+    $("#about").css("margin-top", elHeight);
+  } else {
+    $("#about").css("margin-top", elHeight * 0.5);
+  }
   $("body").css("cssText", "background-color: black !important");
 </script>
 {% endblock %}

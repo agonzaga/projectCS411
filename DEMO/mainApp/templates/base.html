@@ -19,15 +19,26 @@
   </head>
 
   <body>
-    <nav class="navbar sticky-top navbar-light bg-primary">
-      <a class="navbar-brand text-light" href="/">Social Media Personalities</a>
-      <a class="navbar-brand" href="/login"
-        ><button class="pull-right btn btn-danger my-2 my-sm-0" type="submit">
-          Login
+    <nav
+      class="navbar sticky-top navbar-light"
+      style="background-color:#24303c"
+      id="mainNav"
+    >
+      <a id="navTitle" class="navbar-brand" style="color: white" href="/"
+        >Social Media Personalities</a
+      >
+      <a class="navbar-brand" href="/processLogin"
+        ><button
+          class="pull-right btn my-2 my-sm-0"
+          style="background-color: #007bff; color: white"
+          type="submit"
+          id="loginBtn"
+        >
+          Login with Twitter
         </button></a
       >
     </nav>
-    <div id="content" style="margin-bottom:2.5rem; margin-top: 2rem;">
+    <div id="content" style="margin: 3rem 0;">
       {% block content %}{% endblock %}
     </div>
     <div
@@ -53,6 +64,21 @@
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"
     ></script>
+    <script>
+      $(window).scroll(function() {
+        if ($(window).scrollTop() >= 45) {
+          $("nav").css("background-color", "transparent");
+          $("#loginBtn").css("background-color", "#007bff69");
+
+          $("#navTitle").css("color", "transparent");
+        } else {
+          $("nav").css("background-color", "#24303c");
+          $("#loginBtn").css("background-color", "#007bff");
+
+          $("#navTitle").css("color", "white");
+        }
+      });
+    </script>
     {% block customJs %} {% endblock %}
   </body>
 </html>

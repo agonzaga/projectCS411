@@ -11,7 +11,8 @@
   min-width: 100%; 
   min-height: 100%;
   top:0;
-  margin-top: -60px"
+  margin-top: -60px;
+  z-index:-1"
 >
   <source
     src="{{ url_for('static',filename='images/bkg.mp4') }}"
@@ -19,10 +20,7 @@
   />
 </video>
 
-<div
-  class="text-center text-info"
-  style="margin: 2rem 0;position: fixed; margin-left: 15%"
->
+<div class="text-center text-info" style="margin: 2rem 0;">
   <h1 class="display-1">Social Media Personalities</h1>
   <p class="lead text-white">
     Compare and contrast your personality across different social media

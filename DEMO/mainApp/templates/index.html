@@ -1,17 +1,41 @@
 {% extends "base.html" %} {% block title %}Index{% endblock %} {% block content
 %}
-<div class="text-center" style="margin: 2rem 0;">
+<video
+  autoplay
+  muted
+  loop
+  id="myVideo"
+  style="position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  top:0;
+  margin-top: -60px"
+>
+  <source
+    src="{{ url_for('static',filename='images/bkg.mp4') }}"
+    type="video/mp4"
+  />
+</video>
+
+<div
+  class="text-center text-info"
+  style="margin: 2rem 0;position: fixed; margin-left: 15%"
+>
   <h1 class="display-1">Social Media Personalities</h1>
-  <p class="lead">
+  <p class="lead text-white">
     Compare and contrast your personality across different social media
     platforms with the power of IBM Watson.
   </p>
-  <img
-    style="max-width: 7.5%;"
-    src="{{ url_for('static',filename='images/watsonLogo.png') }}"
-  />
-
-  <a href="/getTweet">
+  <!--
+    <img
+      style="max-width: 7.5%;"
+      src="{{ url_for('static',filename='images/watsonLogo.png') }}"
+    />
+  -->
+  <br />
+  <a href="/getTweet" style="padding: 5rem;">
     <button type="button" class="btn btn-success btn-lg btn-cst-start">
       Start
     </button>

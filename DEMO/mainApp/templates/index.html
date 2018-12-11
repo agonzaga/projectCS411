@@ -21,22 +21,43 @@
 </video>
 
 <div class="text-center text-info" style="margin: 2rem 0;">
-  <h1 class="display-1">Social Media Personalities</h1>
-  <p class="lead text-white">
-    Compare and contrast your personality across different social media
-    platforms with the power of IBM Watson.
-  </p>
-  <!--
-    <img
-      style="max-width: 7.5%;"
-      src="{{ url_for('static',filename='images/watsonLogo.png') }}"
-    />
-  -->
+  <div style="background-color:#00000038">
+    <h1 class="display-1">Social Media Personalities</h1>
+    <p class="lead text-white">
+      Compare and contrast your personality across different social media
+      platforms with the power of IBM Watson.
+    </p>
+  </div>
+
   <br />
   <a href="/getTweet" style="padding: 5rem;">
     <button type="button" class="btn btn-success btn-lg btn-cst-start">
       Start
     </button>
   </a>
+  {% endblock %}{% block otherContent %}
+  <div
+    id="about"
+    class="text-center"
+    style="margin-left: 5rem; margin-right: 5rem; margin-bottom: 5rem; background-color: #00000038"
+  >
+    <h1 class="display-3 text-white">About</h1>
+    <p
+      class="lead text-justify text-white"
+      style="font-size: 1.5rem !important"
+    >
+      The original intent of this project was to provider users with the ability
+      to compare and contrast the personailties of people on Twitter and
+      Facebook. However, because of technical difficulites with Facebook, we are
+      not able to provide the abiltity to analyze Facebook users.
+    </p>
+  </div>
 </div>
+{% endblock %} {% block customJs %}
+<script>
+  var pgHeight = $(document).height();
+  var elHeight = $("#content").height();
+  $("#about").css("margin-top", (pgHeight - elHeight) * 1.25);
+  $("body").css("cssText", "background-color: black !important");
+</script>
 {% endblock %}

@@ -18,7 +18,7 @@
     {% endblock %}
   </head>
 
-  <body>
+  <body style="background-color:#001f3e">
     <nav
       class="navbar sticky-top navbar-light"
       style="background-color:#24303c"
@@ -41,6 +41,7 @@
     <div id="content" style="margin: 3rem 0;">
       {% block content %}{% endblock %}
     </div>
+    <div id="otherContent">{% block otherContent %}{% endblock %}</div>
     <div
       id="footer"
       class="bg-light fixed-bottom noselect cursor-default"
@@ -66,7 +67,7 @@
     ></script>
     <script>
       $(window).scroll(function() {
-        if ($(window).scrollTop() >= 45) {
+        if ($(window).scrollTop() >= 25) {
           $("nav").css("background-color", "transparent");
           $("#loginBtn").css("background-color", "#007bff69");
 

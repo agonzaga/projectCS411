@@ -1,7 +1,16 @@
 {% extends "base.html" %} {% block title %} Personality {% endblock %} {% block
 content %}
-<h1 class="display-1 text-center" style="margin: 1.5rem 0">@{{ user }}:</h1>
-<div class="row" style="margin: 0">
+<h1
+  class="display-1 text-center text-white"
+  style="margin-top: -1rem; margin-bottom: 2.5rem;"
+>
+  <a
+    href="{{'https://twitter.com/'+user}}"
+    style="text-decoration:inherit; color:inherit"
+    >@{{ user }}:</a
+  >
+</h1>
+<div class="row" style="margin: 0; padding:0.5rem 2rem">
   {% for tweet in listOfTweets %}
   <div class="col-sm-6 col-lg-4" style="padding-bottom: 1rem;">
     <div class="card">

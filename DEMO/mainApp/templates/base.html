@@ -70,13 +70,19 @@
         if ($(window).scrollTop() >= 20) {
           $("nav").css("background-color", "transparent");
           $("#loginBtn").css("background-color", "#007bff69");
-
           $("#navTitle").css("color", "transparent");
+          $("#navTitle").css("cursor", "default");
+          $("#navTitle").css("user-select", "none");
+          $("#navTitle").click(function(e) {
+            e.preventDefault();
+          });
         } else {
           $("nav").css("background-color", "#24303c");
           $("#loginBtn").css("background-color", "#007bff");
-
           $("#navTitle").css("color", "white");
+          $("#navTitle").css("cursor", "pointer");
+          $("#navTitle").css("user-select", "default");
+          $("#navTitle").unbind("click");
         }
       });
     </script>

@@ -4,6 +4,8 @@ import requests
 import json
 import sqlite3
 import random
+from flask_oauthlib.client import OAuth
+from flask import request, redirect, session, url_for, flash
 
 
 @app.route('/')
@@ -20,19 +22,20 @@ def getTweetHtml():
     return render_template('getTweet.html')
 
 
-@app.route('/login')
+@app.route('/login') #i don't think this is getting used
 def login():
     return render_template('login.html')
 
 
 @app.route('/processLogin')
 def processLogin():
-    return Login.login_twitter()
+    return render_template('login.html')
+    #return Login.login_twitter()
 
-
-@app.route('/oauth-authorized')
+@app.route('/oauth_authorized')
 def oauth_authorized():
-    return Login.login_twitter().oauth()
+    return render_template('oauth_authorized.html')
+    #return Login.oauth()
 
 
 @app.route('/displayPersonality', methods=['POST'])

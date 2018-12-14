@@ -1,13 +1,13 @@
 # from flask_oauthlib.client import OAuth
 # from flask import request, redirect, session, url_for, flash
-# twitter_acc = None
-
-
-# def login_twitter():
-#     oauth = OAuth()
-
-#     # Use Twitter as example remote application
-#     twitter = oauth.remote_app('twitter',
+# from flask_oauthlib.contrib.apps import twitter
+#
+# twitter = None
+#
+# oauth = OAuth()
+#
+# # Use Twitter as example remote application
+# twitter = oauth.remote_app('twitter',
 #                                # unless absolute urls are used to make requests, this will be added
 #                                # before all URLs.  This is also true for request_token_url and others.
 #                                base_url='https://api.twitter.com/1/',
@@ -24,32 +24,34 @@
 #                                consumer_key='HXsLvWs59wM1d1XGE7LJQOigJ',
 #                                consumer_secret='qBeTcrfx4pzUC0EhNdYco0tQkYKVkhIIebdNr4FB6t7pOYMMoT'
 #                                )
-#     twitter_acc = twitter
-
-
-# @twitter_acc.tokengetter
+#
+# def login_twitter():
+#     return twitter.authorize(callback=url_for('oauth_authorized',
+#         next=request.args.get('next') or request.referrer or None))
+#
+# @twitter.tokengetter
 # def get_twitter_token(token=None):
 #     tokens = session.get('twitter_token')
 #     print(tokens)
 #     return tokens
-
+#
+# #get_twitter_token()
 #     # this is causing it to fail
-#     # twitter.authorize(callback=url_for('oauth_authorized',
-#     # next=request.args.get('next') or request.referrer or None))
-
-
+#
+#
+#
 # def oauth():
-#     next_url = request.args.get('next') or url_for('index')
-#     resp = twitter_acc.authorized_response()
+#     next_url = url_for('index') #  or request.args.get('next') or
+#     resp = twitter.authorized_response()
 #     if resp is None:
 #         flash(u'You denied the request to sign in.')
 #         return redirect(next_url)
-
+#
 #     session['twitter_token'] = (
 #         resp['oauth_token'],
 #         resp['oauth_token_secret']
 #     )
 #     session['twitter_user'] = resp['screen_name']
-
+#
 #     flash('You were signed in as %s' % resp['screen_name'])
 #     return redirect(next_url)

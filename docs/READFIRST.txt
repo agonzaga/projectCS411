@@ -1,0 +1,8 @@
+During implementation of the project, we realized that Facebook would not allow us to use 
+their API the way we wanted to. In order to access the user_posts field of their API, facebook
+requires first that we get approved to use it. To submit a approval request, we would have
+had to submit a screencast video on how the user will be using the app, how we plan on using
+user_posts as useful data, and a Privacy Policy page for the user. 
+
+Therefore, we decided to drop Facebook altogether in our project. Please ignore anything in the docs
+folder that is related to Facebook. 

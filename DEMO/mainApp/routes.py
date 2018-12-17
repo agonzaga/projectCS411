@@ -22,6 +22,7 @@ def getTweetHtml():
     return render_template('getTweet.html')
 
 
+
 @app.route('/login') #i don't think this is getting used
 def login():
     return render_template('login.html')
@@ -29,13 +30,15 @@ def login():
 
 @app.route('/processLogin')
 def processLogin():
-    return render_template('login.html')
-    #return Login.login_twitter()
+    render_template('login.html')
+    test = Login.get_twitter_token()
+    #print(test)
+    return Login.login_twitter()
 
 @app.route('/oauth_authorized')
 def oauth_authorized():
-    return render_template('oauth_authorized.html')
-    #return Login.oauth()
+    render_template('oauth_authorized.html')
+    return Login.oauth()
 
 
 @app.route('/displayPersonality', methods=['POST'])

@@ -53,10 +53,10 @@ def get_tweets(twitter_handle, *number_tweets):
 
     number_tweets = 10000
     #  Keys
-    consumer_key = 'eojCvY0S1BEJXUSMMC2cKH4k5'
-    consumer_secret = '9nB0VeYTz3AbJHkvqFsrMf3Rnui358q9BKCGdhuUByRWtqHcMJ'
-    access_token = '1074713697514389504-OarcOSMTDV0QH2Jd2lGX3bfNlnY0Ha'
-    access_secret = 'UWR8Nm7aygTxrlEdGuARsaLi5McJ7fmzfxQcMlQM5l2PQ'
+    consumer_key = ''
+    consumer_secret = ''
+    access_token = ''
+    access_secret = ''
 
     # Authorization
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)

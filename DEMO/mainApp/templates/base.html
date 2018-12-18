@@ -24,11 +24,13 @@
       style="background-color:#24303c"
       id="mainNav"
     >
-      <a id="navTitle" class="navbar-brand" style="color: white" href="/"
-        >Social Media Personalities</a
-      >
-      <a class="navbar-brand" href="/processLogin"
-        ><button
+      <a id="navTitle" class="navbar-brand" style="color: white" href="/">
+        {% if userName == None %} Social Media {% else %} {{ userName }}'s {%
+        endif %} Personalities
+      </a>
+      {% if userName == None %}
+      <a class="navbar-brand" href="/processLogin">
+        <button
           class="pull-right btn my-2 my-sm-0"
           style="background-color: #007bff; color: white"
           type="submit"
@@ -37,6 +39,18 @@
           Login with Twitter
         </button></a
       >
+      {% else %}
+      <a class="navbar-brand">
+        <button
+          class="pull-right btn my-2 my-sm-0"
+          style="background-color: #007bff; color: white"
+          type="submit"
+          id="loginBtn"
+        >
+          Analyze me
+        </button>
+      </a>
+      {% endif %}
     </nav>
     <div id="content" style="margin: 3rem 0;">
       {% block content %}{% endblock %}

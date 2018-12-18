@@ -48,8 +48,8 @@ def analyzeMe():
         d = pretty[0]
         tweetsAsString = pretty[1]
 
-        # Checks to see if Twitter User has enough tweets [Watson requires min of 100 words]
-        if(len(tweetsAsString.split()) < 100):
+        # Checks to see if Twitter User has enough tweets [Watson requires min of 54 words]
+        if(len(tweetsAsString.split()) < 54):
             return render_template('getTweet.html', userName=userName, status=True, msg='You do not have enough tweets required to be analyzed.')
 
         with open("profile.json", "w") as file:
@@ -82,8 +82,8 @@ def displayTweets():
     d = pretty[0]
     tweetsAsString = pretty[1]
 
-    # Checks to see if Twitter User has enough tweets [Watson requires min of 100 words]
-    if(len(tweetsAsString.split()) < 100):
+    # Checks to see if Twitter User has enough tweets [Watson requires min of 54 words]
+    if(len(tweetsAsString.split()) < 54):
         return render_template('getTweet.html', userName=userName, status=True, msg='The user does not have enough tweets required to be analyzed.')
 
     with open("profile.json", "w") as file:
